@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="-375.19999999999999" y="-583.3583208395803"/>
         </scene>
-        <!--View Controller-->
+        <!--Options Controller-->
         <scene sceneID="vMU-6B-5qt">
             <objects>
-                <viewController id="bxM-lR-m2F" sceneMemberID="viewController">
+                <viewController id="bxM-lR-m2F" customClass="OptionsController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4vp-NQ-FDB"/>
                         <viewControllerLayoutGuide type="bottom" id="g5g-UW-NOU"/>
@@ -165,12 +165,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04Z-So-8iX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1183" y="165"/>
+            <point key="canvasLocation" x="-1735" y="237"/>
         </scene>
-        <!--View Controller-->
+        <!--Help Controller-->
         <scene sceneID="Dpy-xA-dql">
             <objects>
-                <viewController id="bfk-ld-6HE" sceneMemberID="viewController">
+                <viewController id="bfk-ld-6HE" customClass="HelpController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZhU-kv-qch"/>
                         <viewControllerLayoutGuide type="bottom" id="UZy-hX-MWE"/>
@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gj-hb-lOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="163.26836581709148"/>
+            <point key="canvasLocation" x="-860" y="236"/>
         </scene>
     </scenes>
 </document>
