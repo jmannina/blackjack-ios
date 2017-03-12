@@ -111,6 +111,9 @@
                                 <rect key="frame" x="16" y="28" width="72" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="BackButtonPressed:" destination="bxM-lR-m2F" eventType="touchUpInside" id="X19-4Z-M24"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Background Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onn-dl-ABz">
                                 <rect key="frame" x="107" y="133" width="167" height="74"/>
@@ -183,6 +186,9 @@
                                 <rect key="frame" x="16" y="28" width="72" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="BackButtonPressed:" destination="bfk-ld-6HE" eventType="touchUpInside" id="agy-V8-wtS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problems/Questions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhQ-5Z-HKh">
                                 <rect key="frame" x="102" y="120" width="187" height="74"/>

@@ -23,4 +23,7 @@ class OptionController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func BackButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
