@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="-375.19999999999999" y="-583.3583208395803"/>
         </scene>
-        <!--Options Controller-->
+        <!--Option Controller-->
         <scene sceneID="vMU-6B-5qt">
             <objects>
-                <viewController id="bxM-lR-m2F" customClass="OptionsController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bxM-lR-m2F" customClass="OptionController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4vp-NQ-FDB"/>
                         <viewControllerLayoutGuide type="bottom" id="g5g-UW-NOU"/>

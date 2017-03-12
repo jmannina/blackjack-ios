@@ -13,7 +13,7 @@
 		70E554FA1E67BF39008A4CDB /* BlackJackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E554F91E67BF39008A4CDB /* BlackJackTests.swift */; };
 		70E555051E67BF39008A4CDB /* BlackJackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E555041E67BF39008A4CDB /* BlackJackUITests.swift */; };
 		8D0F7D251E75D82D0094AA54 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F7D241E75D82D0094AA54 /* MainMenuController.swift */; };
-		8D0F7D271E75E50A0094AA54 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F7D261E75E50A0094AA54 /* OptionsController.swift */; };
+		8D0F7D271E75E50A0094AA54 /* OptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F7D261E75E50A0094AA54 /* OptionController.swift */; };
 		8D0F7D291E75E5290094AA54 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F7D281E75E5290094AA54 /* HelpController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		70E555041E67BF39008A4CDB /* BlackJackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackJackUITests.swift; sourceTree = "<group>"; };
 		70E555061E67BF39008A4CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0F7D241E75D82D0094AA54 /* MainMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
-		8D0F7D261E75E50A0094AA54 /* OptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
+		8D0F7D261E75E50A0094AA54 /* OptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionController.swift; sourceTree = "<group>"; };
 		8D0F7D281E75E5290094AA54 /* HelpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 			children = (
 				70E554E81E67BF39008A4CDB /* Main.storyboard */,
 				8D0F7D281E75E5290094AA54 /* HelpController.swift */,
-				8D0F7D261E75E50A0094AA54 /* OptionsController.swift */,
+				8D0F7D261E75E50A0094AA54 /* OptionController.swift */,
 				8D0F7D241E75D82D0094AA54 /* MainMenuController.swift */,
 				70E554EB1E67BF39008A4CDB /* Assets.xcassets */,
 				70E554ED1E67BF39008A4CDB /* LaunchScreen.storyboard */,
@@ -263,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D0F7D271E75E50A0094AA54 /* OptionsController.swift in Sources */,
+				8D0F7D271E75E50A0094AA54 /* OptionController.swift in Sources */,
 				8D0F7D291E75E5290094AA54 /* HelpController.swift in Sources */,
 				8D0F7D251E75D82D0094AA54 /* MainMenuController.swift in Sources */,
 			);
