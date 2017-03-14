@@ -18,7 +18,6 @@ var BgColor = UIColor.lightGray
 var CardColor = UIColor.black
 var totalCash = 500
 var bet = 0
-
 var tempIndex = 0
 
 class StartController: UIViewController {
@@ -48,13 +47,13 @@ class StartController: UIViewController {
     @IBAction func betSliderChange(_ sender: UISlider) {
         let currentValue = Int(sender.value)
         lblBet.text = "\(currentValue)"
-        let bet = Int(sender.value)
+        bet = Int(sender.value)
+        
     }
-    
     
     var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
     
-    //will return the next card when the user chooses to "Hit"
+    //will retu/rn the next card when the user chooses to "Hit"
     func nextCard(cardList: [Card]) -> Card{
         
         return cardList[currentCardIndex + 1]
@@ -167,24 +166,17 @@ class StartController: UIViewController {
             tempIndex = tempIndex + 1
         
             DealerHit(currentValue: (Int(DealerTotal.text!)!))
-        }
-
-        if(Int(DealerTotal.text!)! > 21){
-            youWin()
-        }
-        
-        if(Int(DealerTotal.text!)! < 21){
-            if((Int(DealerTotal.text!)!) > Int(lblCardTotal.text!)!){
-                youLose()
-            }
-            else if((Int(DealerTotal.text!)!) < Int(lblCardTotal.text!)!){
+        }else{
+            if(Int(DealerTotal.text!)! > 21){
                 youWin()
-            }
-            else if((Int(DealerTotal.text!)!) == Int(lblCardTotal.text!)!){
-                youLose()
-            }
-            else{
-                youLose()
+            }else{
+                if (Int(DealerTotal.text!)! == Int(lblCardTotal.text!)!){
+                    youTied()
+                } else if (Int(DealerTotal.text!)! > Int(lblCardTotal.text!)!){
+                    youLose()
+                }else{
+                    youWin()
+                }
             }
         }
 
@@ -198,29 +190,23 @@ class StartController: UIViewController {
         let playerTotal: Int = Int(lblCardTotal.text!)!
         if(dealerTotal > playerTotal){
             youLose()
-        }
-        else if(dealerTotal == playerTotal){
-            youTied()
-        }
-        if(dealerTotal >= 17){
+        } else if (dealerTotal >= 17) {
             if(playerTotal > dealerTotal){
                 youWin()
-            }
-            else{
+            } else if (playerTotal == dealerTotal){
+                youTied()
+            } else {
                 youLose()
             }
-        }
-        else if(dealerTotal < 17){
+        } else {
             DealerHit(currentValue: dealerTotal)
         }
     }
     
     override func viewDidLoad() {
+        totalCash = 500
         lblTotalCash.text = "\(totalCash)"
-        lblBet.text = "\(bet)"
-        betSlider.value = Float(bet)
         super.viewDidLoad()
-       
     }
     
     override func didReceiveMemoryWarning() {
@@ -261,8 +247,12 @@ class StartController: UIViewController {
         var Ptitle = "Play Again"
         
         totalCash = totalCash - bet
+        
         if (totalCash <= 0) {
             Ptitle = "Start Over"
+            totalCash = 500
+            lblTotalCash.text = "\(totalCash)"
+            betSlider.maximumValue = Float(totalCash)
         }else{
             lblTotalCash.text = "\(totalCash)"
             betSlider.maximumValue = Float(totalCash)
