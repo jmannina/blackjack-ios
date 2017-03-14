@@ -49,6 +49,8 @@ class StartController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         
+        tempIndex = 0
+        
         var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
         
         //setting the background and text colors for the labels/view. Deafult it bg: Light grey, Text: Black
