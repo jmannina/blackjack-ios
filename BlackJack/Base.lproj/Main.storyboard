@@ -302,6 +302,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Stay"/>
+                                <connections>
+                                    <action selector="StayPressed:" destination="Z2F-ec-yuG" eventType="touchUpInside" id="KxH-KP-y6h"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CardFour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euW-dq-OJq" userLabel="card2">
                                 <rect key="frame" x="27" y="450" width="72" height="21"/>

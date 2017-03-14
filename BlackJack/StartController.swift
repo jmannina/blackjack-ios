@@ -47,6 +47,8 @@ class StartController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         
+        var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
+        
         //setting the background and text colors for the labels/view. Deafult it bg: Light grey, Text: Black
         self.view.backgroundColor = BgColor
         lblCardOne.textColor = CardColor
@@ -62,14 +64,14 @@ class StartController: UIViewController {
         
         
         //this will hide the extra labels for cards that not have been drawn
-        lblCardThree.isHidden = !lblCardThree.isHidden
-        lblCardFour.isHidden = !lblCardFour.isHidden
-        lblCardFive.isHidden = !lblCardFive.isHidden
-        lblCardSix.isHidden = !lblCardSix.isHidden
-        DealerCardThree.isHidden = !DealerCardThree.isHidden
-        DealerCardFour.isHidden = !DealerCardFour.isHidden
-        DealerCardFive.isHidden = !DealerCardFive.isHidden
-        DealerCardSix.isHidden = !DealerCardSix.isHidden
+        lblCardThree.isHidden = true
+        lblCardFour.isHidden = true
+        lblCardFive.isHidden = true
+        lblCardSix.isHidden = true
+        DealerCardThree.isHidden = true
+        DealerCardFour.isHidden = true
+        DealerCardFive.isHidden = true
+        DealerCardSix.isHidden = true
 
 
         lblCardOne.text = shuffle[0].cardName
@@ -117,6 +119,25 @@ class StartController: UIViewController {
         }
     }
     
+    @IBAction func StayPressed(_ sender: UIButton) {
+        
+        if((Int(DealerTotal.text!)! <= 17)){
+            
+            if((Int(lblCardTotal.text!)! > 17)){
+                youWin()
+            }
+            else{
+                youLose()
+            }
+        }
+        else{
+        
+            //if the dealer total is less than the player total draw another card
+            if((Int(DealerTotal.text!)! < Int(lblCardTotal.text!)!)){
+            
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -132,5 +153,43 @@ class StartController: UIViewController {
     @IBAction func BackButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    internal func youWin(){
+        let title = "You Win"
+        let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
+
+        let PlayAgainAction = UIAlertAction(title: "Play Again", style: .default) { action in
+            self.viewWillAppear(true)
+        }
+            
+            
+        let MainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+            alertController.addAction(PlayAgainAction)
+            alertController.addAction(MainMenuAction)
+            self.present(alertController, animated: true, completion: nil)
+    }
+    
+    internal func youLose(){
+        let title = "You Lose"
+        let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        
+        let PlayAgainAction = UIAlertAction(title: "Play Again", style: .default) { action in
+            self.viewWillAppear(true)
+        }
+        
+        
+        let MainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(PlayAgainAction)
+        alertController.addAction(MainMenuAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
 }
