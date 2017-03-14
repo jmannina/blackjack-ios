@@ -17,6 +17,7 @@ var dealerCardCount = 2
 var BgColor = UIColor.lightGray
 var CardColor = UIColor.black
 
+var tempIndex = 0
 
 class StartController: UIViewController {
     @IBOutlet weak var lblCardOne: UILabel!
@@ -62,6 +63,10 @@ class StartController: UIViewController {
         lblTotalWordPlayer.textColor = CardColor
         lblCardTotal.textColor = CardColor
         DealerTotal.textColor = CardColor
+        DealerCardThree.textColor = CardColor
+        DealerCardFour.textColor = CardColor
+        DealerCardFive.textColor = CardColor
+        DealerCardThree.textColor = CardColor
         
         
         //this will hide the extra labels for cards that not have been drawn
@@ -128,53 +133,38 @@ class StartController: UIViewController {
     func DealerHit(currentValue: Int){
         
         let dealerCardlist = [DealerCardThree, DealerCardFour, DealerCardFive, DealerCardSix]
-        var tempIndex = 0
+        
+        let currentCard = nextCard()
+        
         if(Int(DealerTotal.text!)! < 17){
     
-    
-            let currentCard = nextCard()
-            dealerCardlist[tempIndex]?.isHidden = false
-            dealerCardlist[tempIndex]?.text = currentCard.cardName
+            dealerCardlist[tempIndex]!.isHidden = false
+            dealerCardlist[tempIndex]!.text = currentCard.cardName
             DealerTotal.text = String((Int(DealerTotal.text!)! + currentCard.value))
             currentCardIndex = currentCardIndex + 1
             dealerCardCount = dealerCardCount + 1
             tempIndex = tempIndex + 1
         
-            DealerHit(currentValue: (Int(lblCardTotal.text!)!))
+            DealerHit(currentValue: (Int(DealerTotal.text!)!))
+        }
 
-       /* else if (dealerCardCount == 3){
-            let currentCard = nextCard()
-            DealerCardFour.isHidden = !lblCardFour.isHidden
-            lblCardFour.text = currentCard.cardName
-            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
-            currentCardIndex = currentCardIndex + 1
-            dealerCardCount = dealerCardCount + 1
-        }
-        else if (dealerCardCount == 4){
-            let currentCard = nextCard()
-            lblCardFive.isHidden = !lblCardFive.isHidden
-            lblCardFive.text = currentCard.cardName
-            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
-            currentCardIndex = currentCardIndex + 1
-            dealerCardCount = dealerCardCount + 1
-        }
-        else if (dealerCardCount == 5){
-            let currentCard = nextCard()
-            lblCardSix.isHidden = !lblCardSix.isHidden
-            lblCardSix.text = currentCard.cardName
-            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
-            currentCardIndex = currentCardIndex + 1
-            dealerCardCount = dealerCardCount + 1 */
-        }
-        else{
-            return
-        }
-        
         if(Int(DealerTotal.text!)! > 21){
             youWin()
         }
+        
         if(Int(DealerTotal.text!)! < 21){
-            
+            if((Int(DealerTotal.text!)!) > Int(lblCardTotal.text!)!){
+                youLose()
+            }
+            else if((Int(DealerTotal.text!)!) < Int(lblCardTotal.text!)!){
+                youWin()
+            }
+            else if((Int(DealerTotal.text!)!) == Int(lblCardTotal.text!)!){
+                youLose()
+            }
+            else{
+                youLose()
+            }
         }
 
     }
@@ -183,7 +173,12 @@ class StartController: UIViewController {
     @IBAction func StayPressed(_ sender: UIButton) {
         let dealerTotal: Int = Int(DealerTotal.text!)!
         let playerTotal: Int = Int(lblCardTotal.text!)!
-        
+        if(dealerTotal > playerTotal){
+            youLose()
+        }
+        else if(dealerTotal == playerTotal){
+            youLose()
+        }
         if(dealerTotal >= 17){
             if(playerTotal > dealerTotal){
                 youWin()
@@ -195,9 +190,7 @@ class StartController: UIViewController {
         else if(dealerTotal < 17){
             DealerHit(currentValue: dealerTotal)
         }
-    
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
