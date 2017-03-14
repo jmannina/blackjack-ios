@@ -42,16 +42,16 @@ class StartController: UIViewController {
     var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
     
     //will return the next card when the user chooses to "Hit"
-    func nextCard() -> Card{
+    func nextCard(cardList: [Card]) -> Card{
         
-        return shuffle[currentCardIndex + 1]
+        return cardList[currentCardIndex + 1]
     }
     
     override func viewWillAppear(_ animated: Bool){
         
         tempIndex = 0
         
-        var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
+        var shuffle2 = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: shuffle) as! [Card]
         
         //setting the background and text colors for the labels/view. Deafult it bg: Light grey, Text: Black
         self.view.backgroundColor = BgColor
@@ -82,13 +82,13 @@ class StartController: UIViewController {
         DealerCardSix.isHidden = true
 
 
-        lblCardOne.text = shuffle[0].cardName
-        lblCardTwo.text = shuffle[1].cardName
-        lblCardTotal.text = String(shuffle[0].value + shuffle[1].value)
-        DealerCardOne.text = shuffle[2].cardName
-        DealerCardTwo.text = shuffle[3].cardName
-        DealerTotal.text = String(shuffle[2].value
-         + shuffle[3].value)
+        lblCardOne.text = shuffle2[0].cardName
+        lblCardTwo.text = shuffle2[1].cardName
+        lblCardTotal.text = String(shuffle2[0].value + shuffle[1].value)
+        DealerCardOne.text = shuffle2[2].cardName
+        DealerCardTwo.text = shuffle2[3].cardName
+        DealerTotal.text = String(shuffle2[2].value
+         + shuffle2[3].value)
         
         currentCardIndex = 3
         currentNumberOfCards = 4
@@ -97,7 +97,9 @@ class StartController: UIViewController {
     
     @IBAction func HitPressed(_ sender: UIButton) {
         
-        let currentCard = nextCard()
+        let shuffle2 = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: shuffle) as! [Card]
+        
+        let currentCard = nextCard(cardList: shuffle2)
         if (currentNumberOfCards == 4){
             lblCardThree.isHidden = !lblCardThree.isHidden
             lblCardThree.text = currentCard.cardName
@@ -136,7 +138,9 @@ class StartController: UIViewController {
         
         let dealerCardlist = [DealerCardThree, DealerCardFour, DealerCardFive, DealerCardSix]
         
-        let currentCard = nextCard()
+        let shuffle2 = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: shuffle) as! [Card]
+        
+        let currentCard = nextCard(cardList: shuffle2)
         
         if(Int(DealerTotal.text!)! < 17){
     
