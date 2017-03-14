@@ -22,10 +22,18 @@ class StartController: UIViewController {
     @IBOutlet weak var lblCardTwo: UILabel!
     @IBOutlet weak var lblCardTotal: UILabel!
     @IBOutlet weak var lblCardThree: UILabel!
+    @IBOutlet weak var lblCardFive: UILabel!
+    @IBOutlet weak var lblCardSix: UILabel!
     @IBOutlet weak var lblCardFour: UILabel!
+    
     @IBOutlet weak var DealerCardOne: UILabel!
     @IBOutlet weak var DealerCardTwo: UILabel!
+    @IBOutlet weak var DealerCardThree: UILabel!
+    @IBOutlet weak var DealerCardFour: UILabel!
+    @IBOutlet weak var DealerCardFive: UILabel!
+    @IBOutlet weak var DealerCardSix: UILabel!
     @IBOutlet weak var DealerTotal: UILabel!
+    
     @IBOutlet weak var lblTotalWord: UILabel!
     @IBOutlet weak var lblTotalWordPlayer: UILabel!
     
@@ -39,6 +47,7 @@ class StartController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         
+        //setting the background and text colors for the labels/view. Deafult it bg: Light grey, Text: Black
         self.view.backgroundColor = BgColor
         lblCardOne.textColor = CardColor
         lblCardTwo.textColor = CardColor
@@ -52,7 +61,17 @@ class StartController: UIViewController {
         DealerTotal.textColor = CardColor
         
         
-        
+        //this will hide the extra labels for cards that not have been drawn
+        lblCardThree.isHidden = !lblCardThree.isHidden
+        lblCardFour.isHidden = !lblCardFour.isHidden
+        lblCardFive.isHidden = !lblCardFive.isHidden
+        lblCardSix.isHidden = !lblCardSix.isHidden
+        DealerCardThree.isHidden = !DealerCardThree.isHidden
+        DealerCardFour.isHidden = !DealerCardFour.isHidden
+        DealerCardFive.isHidden = !DealerCardFive.isHidden
+        DealerCardSix.isHidden = !DealerCardSix.isHidden
+
+
         lblCardOne.text = shuffle[0].cardName
         lblCardTwo.text = shuffle[1].cardName
         lblCardTotal.text = String(shuffle[0].value + shuffle[1].value)
@@ -69,18 +88,32 @@ class StartController: UIViewController {
     @IBAction func HitPressed(_ sender: UIButton) {
         let currentCard = nextCard()
         if (currentNumberOfCards == 4){
-            
-            lblCardThree.isEnabled = true
+            lblCardThree.isHidden = !lblCardThree.isHidden
             lblCardThree.text = currentCard.cardName
             lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
             currentCardIndex = 4
             currentNumberOfCards = 5
         }
         else if (currentNumberOfCards == 5){
+            lblCardFour.isHidden = !lblCardFour.isHidden
             lblCardFour.text = currentCard.cardName
             lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
             currentCardIndex = 5
             currentNumberOfCards = 6
+        }
+        else if (currentNumberOfCards == 6){
+            lblCardFive.isHidden = !lblCardFive.isHidden
+            lblCardFive.text = currentCard.cardName
+            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
+            currentCardIndex = 6
+            currentNumberOfCards = 7
+        }
+        else if (currentNumberOfCards == 7){
+            lblCardSix.isHidden = !lblCardSix.isHidden
+            lblCardSix.text = currentCard.cardName
+            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
+            currentCardIndex = 7
+            currentNumberOfCards = 8
         }
     }
     
