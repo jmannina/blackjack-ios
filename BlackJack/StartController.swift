@@ -12,6 +12,7 @@ import GameplayKit
 
 var currentCardIndex = Int()
 var currentNumberOfCards = Int()
+var dealerCardCount = 2
 
 var BgColor = UIColor.lightGray
 var CardColor = UIColor.black
@@ -88,6 +89,7 @@ class StartController: UIViewController {
     }
     
     @IBAction func HitPressed(_ sender: UIButton) {
+        
         let currentCard = nextCard()
         if (currentNumberOfCards == 4){
             lblCardThree.isHidden = !lblCardThree.isHidden
@@ -117,26 +119,83 @@ class StartController: UIViewController {
             currentCardIndex = 7
             currentNumberOfCards = 8
         }
+        
+        if((Int(lblCardTotal.text!)! > 21)){
+            youLose()
+        }
     }
     
-    @IBAction func StayPressed(_ sender: UIButton) {
+    func DealerHit(currentValue: Int){
         
-        if((Int(DealerTotal.text!)! <= 17)){
+        let dealerCardlist = [DealerCardThree, DealerCardFour, DealerCardFive, DealerCardSix]
+        var tempIndex = 0
+        if(Int(DealerTotal.text!)! < 17){
+    
+    
+            let currentCard = nextCard()
+            dealerCardlist[tempIndex]?.isHidden = false
+            dealerCardlist[tempIndex]?.text = currentCard.cardName
+            DealerTotal.text = String((Int(DealerTotal.text!)! + currentCard.value))
+            currentCardIndex = currentCardIndex + 1
+            dealerCardCount = dealerCardCount + 1
+            tempIndex = tempIndex + 1
+        
+            DealerHit(currentValue: (Int(lblCardTotal.text!)!))
+
+       /* else if (dealerCardCount == 3){
+            let currentCard = nextCard()
+            DealerCardFour.isHidden = !lblCardFour.isHidden
+            lblCardFour.text = currentCard.cardName
+            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
+            currentCardIndex = currentCardIndex + 1
+            dealerCardCount = dealerCardCount + 1
+        }
+        else if (dealerCardCount == 4){
+            let currentCard = nextCard()
+            lblCardFive.isHidden = !lblCardFive.isHidden
+            lblCardFive.text = currentCard.cardName
+            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
+            currentCardIndex = currentCardIndex + 1
+            dealerCardCount = dealerCardCount + 1
+        }
+        else if (dealerCardCount == 5){
+            let currentCard = nextCard()
+            lblCardSix.isHidden = !lblCardSix.isHidden
+            lblCardSix.text = currentCard.cardName
+            lblCardTotal.text = String((Int(lblCardTotal.text!)! + currentCard.value))
+            currentCardIndex = currentCardIndex + 1
+            dealerCardCount = dealerCardCount + 1 */
+        }
+        else{
+            return
+        }
+        
+        if(Int(DealerTotal.text!)! > 21){
+            youWin()
+        }
+        if(Int(DealerTotal.text!)! < 21){
             
-            if((Int(lblCardTotal.text!)! > 17)){
+        }
+
+    }
+
+    
+    @IBAction func StayPressed(_ sender: UIButton) {
+        let dealerTotal: Int = Int(DealerTotal.text!)!
+        let playerTotal: Int = Int(lblCardTotal.text!)!
+        
+        if(dealerTotal >= 17){
+            if(playerTotal > dealerTotal){
                 youWin()
             }
             else{
                 youLose()
             }
         }
-        else{
-        
-            //if the dealer total is less than the player total draw another card
-            if((Int(DealerTotal.text!)! < Int(lblCardTotal.text!)!)){
-            
-            }
+        else if(dealerTotal < 17){
+            DealerHit(currentValue: dealerTotal)
         }
+    
     }
     
     
@@ -156,7 +215,7 @@ class StartController: UIViewController {
     
     
     internal func youWin(){
-        let title = "You Win"
+        let title = "You Won!"
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
 
         let PlayAgainAction = UIAlertAction(title: "Play Again", style: .default) { action in
@@ -174,7 +233,7 @@ class StartController: UIViewController {
     }
     
     internal func youLose(){
-        let title = "You Lose"
+        let title = "You Lost!"
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
         
         let PlayAgainAction = UIAlertAction(title: "Play Again", style: .default) { action in
