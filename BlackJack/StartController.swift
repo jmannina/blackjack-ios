@@ -16,6 +16,8 @@ var dealerCardCount = 2
 
 var BgColor = UIColor.lightGray
 var CardColor = UIColor.black
+var totalCash = 500
+var bet = 0
 
 var tempIndex = 0
 
@@ -38,6 +40,17 @@ class StartController: UIViewController {
     
     @IBOutlet weak var lblTotalWord: UILabel!
     @IBOutlet weak var lblTotalWordPlayer: UILabel!
+    
+    @IBOutlet weak var lblBet: UILabel!
+    @IBOutlet weak var lblTotalCash: UILabel!
+    @IBOutlet weak var betSlider: UISlider!
+    
+    @IBAction func betSliderChange(_ sender: UISlider) {
+        let currentValue = Int(sender.value)
+        lblBet.text = "\(currentValue)"
+        let bet = Int(sender.value)
+    }
+    
     
     var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
     
@@ -72,6 +85,7 @@ class StartController: UIViewController {
         
         
         //this will hide the extra labels for cards that not have been drawn
+        DealerCardTwo.isHidden = true
         lblCardThree.isHidden = true
         lblCardFour.isHidden = true
         lblCardFive.isHidden = true
@@ -80,6 +94,7 @@ class StartController: UIViewController {
         DealerCardFour.isHidden = true
         DealerCardFive.isHidden = true
         DealerCardSix.isHidden = true
+        DealerTotal.isHidden = true
 
 
         lblCardOne.text = shuffle2[0].cardName
@@ -177,13 +192,15 @@ class StartController: UIViewController {
 
     
     @IBAction func StayPressed(_ sender: UIButton) {
+        DealerTotal.isHidden = false
+        DealerCardTwo.isHidden = false
         let dealerTotal: Int = Int(DealerTotal.text!)!
         let playerTotal: Int = Int(lblCardTotal.text!)!
         if(dealerTotal > playerTotal){
             youLose()
         }
         else if(dealerTotal == playerTotal){
-            youLose()
+            youTied()
         }
         if(dealerTotal >= 17){
             if(playerTotal > dealerTotal){
@@ -199,6 +216,9 @@ class StartController: UIViewController {
     }
     
     override func viewDidLoad() {
+        lblTotalCash.text = "\(totalCash)"
+        lblBet.text = "\(bet)"
+        betSlider.value = Float(bet)
         super.viewDidLoad()
        
     }
@@ -214,6 +234,11 @@ class StartController: UIViewController {
     
     
     internal func youWin(){
+        
+        totalCash = totalCash + bet
+        lblTotalCash.text = "\(totalCash)"
+        betSlider.maximumValue = Float(totalCash)
+        
         let title = "You Won!"
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
 
@@ -226,13 +251,42 @@ class StartController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
             
-            alertController.addAction(PlayAgainAction)
-            alertController.addAction(MainMenuAction)
-            self.present(alertController, animated: true, completion: nil)
+        alertController.addAction(PlayAgainAction)
+        alertController.addAction(MainMenuAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     internal func youLose(){
-        let title = "You Lost!"
+        let Atitle = "You Lost!"
+        var Ptitle = "Play Again"
+        
+        totalCash = totalCash - bet
+        if (totalCash <= 0) {
+            Ptitle = "Start Over"
+        }else{
+            lblTotalCash.text = "\(totalCash)"
+            betSlider.maximumValue = Float(totalCash)
+        }
+        
+        let alertController = UIAlertController(title: Atitle, message: "", preferredStyle: .alert)
+        
+        let PlayAgainAction = UIAlertAction(title: Ptitle, style: .default) { action in
+            self.viewWillAppear(true)
+        }
+        
+        
+        let MainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(PlayAgainAction)
+        alertController.addAction(MainMenuAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    internal func youTied(){
+        let title = "You Tied!"
+        
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
         
         let PlayAgainAction = UIAlertAction(title: "Play Again", style: .default) { action in
@@ -248,6 +302,4 @@ class StartController: UIViewController {
         alertController.addAction(MainMenuAction)
         self.present(alertController, animated: true, completion: nil)
     }
-
-    
 }

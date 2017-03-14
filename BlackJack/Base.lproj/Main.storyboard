@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5xT-UA-rWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5xT-UA-rWb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,13 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blackjack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwi-UC-8Cl">
-                                <rect key="frame" x="121" y="28" width="133" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <color key="highlightedColor" red="1" green="0.94665045938502157" blue="0.16846561591870701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYS-Tk-ezp">
                                 <rect key="frame" x="137" y="254" width="101" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,13 +66,20 @@
                                     <segue destination="bfk-ld-6HE" kind="show" id="95E-t2-d8u"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blackjack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwi-UC-8Cl">
+                                <rect key="frame" x="121" y="28" width="133" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" red="1" green="0.94665045938502157" blue="0.16846561591870701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0P-hb-ecR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-375.19999999999999" y="-583.3583208395803"/>
+            <point key="canvasLocation" x="-1223" y="-549"/>
         </scene>
         <!--Option Controller-->
         <scene sceneID="vMU-6B-5qt">
@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04Z-So-8iX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1689" y="235"/>
+            <point key="canvasLocation" x="-1742" y="234"/>
         </scene>
         <!--Help Controller-->
         <scene sceneID="Dpy-xA-dql">
@@ -390,6 +390,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="99R-nv-Kyy">
+                                <rect key="frame" x="49" y="535" width="163" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="betSliderChange:" destination="Z2F-ec-yuG" eventType="valueChanged" id="NPh-ct-lGk"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Cash:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W0-eu-InZ">
+                                <rect key="frame" x="210" y="506" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uc-89-2Br">
+                                <rect key="frame" x="304" y="506" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqG-u2-umb">
+                                <rect key="frame" x="51" y="506" width="31" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVh-6w-hqc">
+                                <rect key="frame" x="107" y="506" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -401,6 +436,8 @@
                         <outlet property="DealerCardThree" destination="lNs-Lu-kfk" id="YVY-Il-8Xm"/>
                         <outlet property="DealerCardTwo" destination="xi8-n2-FCM" id="nJT-Qg-uhe"/>
                         <outlet property="DealerTotal" destination="3e9-3f-OdY" id="3wC-7t-WaM"/>
+                        <outlet property="betSlider" destination="99R-nv-Kyy" id="dDE-dS-Y1q"/>
+                        <outlet property="lblBet" destination="BVh-6w-hqc" id="Vse-Zr-4CR"/>
                         <outlet property="lblCardFive" destination="mOE-yh-ff8" id="k1M-0P-rV3"/>
                         <outlet property="lblCardFour" destination="euW-dq-OJq" id="gGJ-PD-X7A"/>
                         <outlet property="lblCardOne" destination="yyJ-qK-DRA" id="iar-0Y-54F"/>
@@ -408,13 +445,14 @@
                         <outlet property="lblCardThree" destination="w0P-kx-pgg" id="AOM-gB-3Tj"/>
                         <outlet property="lblCardTotal" destination="hvo-c7-IlT" id="tJ9-Ku-NMD"/>
                         <outlet property="lblCardTwo" destination="RiM-tq-oXq" id="1hv-d8-a2k"/>
+                        <outlet property="lblTotalCash" destination="1uc-89-2Br" id="LVA-PB-7Nx"/>
                         <outlet property="lblTotalWord" destination="b0C-gw-hH3" id="dja-Me-3NE"/>
                         <outlet property="lblTotalWordPlayer" destination="1jt-3y-4L3" id="KhV-dU-cBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct5-EP-fdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="234.33283358320841"/>
+            <point key="canvasLocation" x="-89" y="212"/>
         </scene>
     </scenes>
 </document>
