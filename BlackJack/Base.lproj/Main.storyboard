@@ -93,13 +93,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rMV-wQ-hBa">
-                                <rect key="frame" x="55" y="201" width="270" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="rMV-wQ-hBa">
+                                <rect key="frame" x="55" y="226" width="270" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Red"/>
+                                    <segment title="Grey"/>
                                     <segment title="Blue"/>
-                                    <segment title="White"/>
+                                    <segment title="Red"/>
                                     <segment title="Green"/>
                                 </segments>
                             </segmentedControl>
@@ -118,48 +118,37 @@
                                     <action selector="BackButtonPressed:" destination="bxM-lR-m2F" eventType="touchUpInside" id="X19-4Z-M24"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Background Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onn-dl-ABz">
-                                <rect key="frame" x="107" y="133" width="167" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <color key="highlightedColor" red="1" green="0.94665045940000003" blue="0.1684656159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gbJ-ER-cLf">
-                                <rect key="frame" x="52" y="352" width="270" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="gbJ-ER-cLf">
+                                <rect key="frame" x="52" y="394" width="270" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
+                                    <segment title="Black"/>
                                     <segment title="Red"/>
-                                    <segment title="Blue"/>
                                     <segment title="White"/>
                                     <segment title="Green"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7R-lV-Owt">
-                                <rect key="frame" x="113" y="416" width="139" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <color key="highlightedColor" red="1" green="0.94665045940000003" blue="0.1684656159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAC-pO-s5z">
-                                <rect key="frame" x="124" y="555" width="101" height="65"/>
+                                <rect key="frame" x="137" y="509" width="101" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="SaveButtonPressed:" destination="bxM-lR-m2F" eventType="touchUpInside" id="y7A-vU-5HM"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iQQ-jF-al5">
-                                <rect key="frame" x="107" y="491" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Text Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2Z-Bn-vxl">
-                                <rect key="frame" x="118" y="270" width="145" height="74"/>
+                                <rect key="frame" x="112" y="296" width="145" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" red="1" green="0.94665045940000003" blue="0.1684656159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Background Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onn-dl-ABz">
+                                <rect key="frame" x="107" y="144" width="167" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -168,6 +157,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="BgColorSegmentController" destination="rMV-wQ-hBa" id="dwI-eT-FfU"/>
+                        <outlet property="CardColorSegmentController" destination="gbJ-ER-cLf" id="Zlc-3r-lMF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04Z-So-8iX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -364,6 +357,8 @@
                         <outlet property="lblCardThree" destination="w0P-kx-pgg" id="AOM-gB-3Tj"/>
                         <outlet property="lblCardTotal" destination="hvo-c7-IlT" id="tJ9-Ku-NMD"/>
                         <outlet property="lblCardTwo" destination="RiM-tq-oXq" id="1hv-d8-a2k"/>
+                        <outlet property="lblTotalWord" destination="b0C-gw-hH3" id="dja-Me-3NE"/>
+                        <outlet property="lblTotalWordPlayer" destination="1jt-3y-4L3" id="KhV-dU-cBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct5-EP-fdb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,8 @@ import GameplayKit
 var currentCardIndex = Int()
 var currentNumberOfCards = Int()
 
+var BgColor = UIColor.lightGray
+var CardColor = UIColor.black
 
 
 class StartController: UIViewController {
@@ -24,6 +26,8 @@ class StartController: UIViewController {
     @IBOutlet weak var DealerCardOne: UILabel!
     @IBOutlet weak var DealerCardTwo: UILabel!
     @IBOutlet weak var DealerTotal: UILabel!
+    @IBOutlet weak var lblTotalWord: UILabel!
+    @IBOutlet weak var lblTotalWordPlayer: UILabel!
     
     var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
     
@@ -34,6 +38,21 @@ class StartController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool){
+        
+        self.view.backgroundColor = BgColor
+        lblCardOne.textColor = CardColor
+        lblCardTwo.textColor = CardColor
+        lblCardThree.textColor = CardColor
+        lblCardFour.textColor = CardColor
+        DealerCardOne.textColor = CardColor
+        DealerCardTwo.textColor = CardColor
+        lblTotalWord.textColor = CardColor
+        lblTotalWordPlayer.textColor = CardColor
+        lblCardTotal.textColor = CardColor
+        DealerTotal.textColor = CardColor
+        
+        
+        
         lblCardOne.text = shuffle[0].cardName
         lblCardTwo.text = shuffle[1].cardName
         lblCardTotal.text = String(shuffle[0].value + shuffle[1].value)
