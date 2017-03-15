@@ -21,11 +21,6 @@ class MainMenuController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         GlobalVariables.scores.append(_highscore)
-        for score in GlobalVariables.scores {
-            if score != 0 {
-                print("\(score)")
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {
