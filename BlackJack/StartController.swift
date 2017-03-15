@@ -249,7 +249,15 @@ class StartController: UIViewController {
     }
     
     @IBAction func BackButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "menuSegue", sender: totalCash)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? MainMenuController {
+            if let score = sender as? Int {
+                dest.highscore = score
+            }
+        }
     }
     
     
@@ -263,6 +271,7 @@ class StartController: UIViewController {
 
         let PlayAgainAction = UIAlertAction(title: "Play Again", style: .default) { action in
             self.viewWillAppear(true)
+            self.reset()
         }
             
             
@@ -273,7 +282,6 @@ class StartController: UIViewController {
         alertController.addAction(PlayAgainAction)
         alertController.addAction(MainMenuAction)
         self.present(alertController, animated: true, completion: nil)
-        reset()
     }
     
     internal func youLose(){
@@ -296,6 +304,7 @@ class StartController: UIViewController {
         
         let PlayAgainAction = UIAlertAction(title: Ptitle, style: .default) { action in
             self.viewWillAppear(true)
+            self.reset()
         }
         
         
@@ -306,7 +315,6 @@ class StartController: UIViewController {
         alertController.addAction(PlayAgainAction)
         alertController.addAction(MainMenuAction)
         self.present(alertController, animated: true, completion: nil)
-        reset()
     }
     
     internal func youTied(){
@@ -316,16 +324,16 @@ class StartController: UIViewController {
         
         let PlayAgainAction = UIAlertAction(title: "Play Again", style: .default) { action in
             self.viewWillAppear(true)
+            self.reset()
         }
         
         
         let MainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { action in
-            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "menuSegue", sender: totalCash)
         }
         
         alertController.addAction(PlayAgainAction)
         alertController.addAction(MainMenuAction)
         self.present(alertController, animated: true, completion: nil)
-        reset()
     }
 }
