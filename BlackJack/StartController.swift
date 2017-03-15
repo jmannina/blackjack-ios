@@ -29,6 +29,10 @@ class StartController: UIViewController {
     @IBOutlet weak var lblCardSix: UILabel!
     @IBOutlet weak var lblCardFour: UILabel!
     
+    @IBOutlet weak var btnHit: UIButton!
+    @IBOutlet weak var btnStay: UIButton!
+    @IBOutlet weak var btnLock: UIButton!
+    
     @IBOutlet weak var DealerCardOne: UILabel!
     @IBOutlet weak var DealerCardTwo: UILabel!
     @IBOutlet weak var DealerCardThree: UILabel!
@@ -53,9 +57,8 @@ class StartController: UIViewController {
     
     var shuffle = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Deck) as! [Card]
     
-    //will retu/rn the next card when the user chooses to "Hit"
+    //will return the next card when the user chooses to "Hit"
     func nextCard(cardList: [Card]) -> Card{
-        
         return cardList[currentCardIndex + 1]
     }
     
@@ -84,7 +87,12 @@ class StartController: UIViewController {
         
         
         //this will hide the extra labels for cards that not have been drawn
+        btnHit.isEnabled = false
+        btnStay.isEnabled = false
+        DealerCardOne.isHidden = true
         DealerCardTwo.isHidden = true
+        lblCardOne.isHidden = true
+        lblCardTwo.isHidden = true
         lblCardThree.isHidden = true
         lblCardFour.isHidden = true
         lblCardFive.isHidden = true
@@ -94,11 +102,11 @@ class StartController: UIViewController {
         DealerCardFive.isHidden = true
         DealerCardSix.isHidden = true
         DealerTotal.isHidden = true
-
+        lblCardTotal.isHidden = true
 
         lblCardOne.text = shuffle2[0].cardName
         lblCardTwo.text = shuffle2[1].cardName
-        lblCardTotal.text = String(shuffle2[0].value + shuffle[1].value)
+        lblCardTotal.text = String(shuffle2[0].value + shuffle2[1].value)
         DealerCardOne.text = shuffle2[2].cardName
         DealerCardTwo.text = shuffle2[3].cardName
         DealerTotal.text = String(shuffle2[2].value
@@ -106,7 +114,33 @@ class StartController: UIViewController {
         
         currentCardIndex = 3
         currentNumberOfCards = 4
-        
+    }
+    
+    
+    @IBAction func LockInBet(_ sender: UIButton) {
+        DealerCardOne.isHidden = false
+        lblCardOne.isHidden = false
+        lblCardTwo.isHidden = false
+        betSlider.isHidden = true
+        btnHit.isEnabled = true
+        btnStay.isEnabled = true
+        lblCardTotal.isHidden = false
+        btnLock.isHidden = true
+        lblCardTotal.isHidden = false
+    }
+    
+    internal func reset() {
+        DealerCardOne.isHidden = true
+        lblCardOne.isHidden = true
+        lblCardTwo.isHidden = true
+        betSlider.isHidden = false
+        lblCardOne.isHidden = true
+        lblCardTwo.isHidden = true
+        btnHit.isEnabled = false
+        btnStay.isEnabled = false
+        lblCardTotal.isHidden = true
+        btnLock.isHidden = false
+        lblCardTotal.isHidden = true
     }
     
     @IBAction func HitPressed(_ sender: UIButton) {
@@ -220,7 +254,6 @@ class StartController: UIViewController {
     
     
     internal func youWin(){
-        
         totalCash = totalCash + bet
         lblTotalCash.text = "\(totalCash)"
         betSlider.maximumValue = Float(totalCash)
@@ -240,6 +273,7 @@ class StartController: UIViewController {
         alertController.addAction(PlayAgainAction)
         alertController.addAction(MainMenuAction)
         self.present(alertController, animated: true, completion: nil)
+        reset()
     }
     
     internal func youLose(){
@@ -272,6 +306,7 @@ class StartController: UIViewController {
         alertController.addAction(PlayAgainAction)
         alertController.addAction(MainMenuAction)
         self.present(alertController, animated: true, completion: nil)
+        reset()
     }
     
     internal func youTied(){
@@ -291,5 +326,6 @@ class StartController: UIViewController {
         alertController.addAction(PlayAgainAction)
         alertController.addAction(MainMenuAction)
         self.present(alertController, animated: true, completion: nil)
+        reset()
     }
 }

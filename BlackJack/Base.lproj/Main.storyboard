@@ -30,7 +30,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Z2F-ec-yuG" kind="show" id="3c5-Or-hJp"/>
+                                    <segue destination="Z2F-ec-yuG" kind="show" id="bch-Is-lrG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RS-rz-sav">
@@ -41,6 +41,9 @@
                                 <state key="normal" title="Scores">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="bp5-7C-eya" kind="show" id="XgY-oA-6my"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPU-RW-OU8">
                                 <rect key="frame" x="137" y="454" width="101" height="65"/>
@@ -80,6 +83,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0P-hb-ecR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1223" y="-549"/>
+        </scene>
+        <!--Scores Controller-->
+        <scene sceneID="tF9-fA-I0u">
+            <objects>
+                <viewController id="bp5-7C-eya" customClass="ScoresController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wo8-1B-dih"/>
+                        <viewControllerLayoutGuide type="bottom" id="u9U-9R-0Hw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kPf-Dv-O3y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQc-6c-xHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-87" y="204"/>
         </scene>
         <!--Option Controller-->
         <scene sceneID="vMU-6B-5qt">
@@ -164,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04Z-So-8iX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1742" y="234"/>
+            <point key="canvasLocation" x="-2340" y="204"/>
         </scene>
         <!--Help Controller-->
         <scene sceneID="Dpy-xA-dql">
@@ -237,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gj-hb-lOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-799" y="236"/>
+            <point key="canvasLocation" x="-1601" y="204"/>
         </scene>
         <!--Start Controller-->
         <scene sceneID="tK9-rL-r3h">
@@ -363,7 +384,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DCardFive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cc-qq-GDS" userLabel="card2">
-                                <rect key="frame" x="147" y="155" width="80" height="21"/>
+                                <rect key="frame" x="142" y="155" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -384,7 +405,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DCardSix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-R8-HvP" userLabel="card2">
-                                <rect key="frame" x="251" y="155" width="72" height="21"/>
+                                <rect key="frame" x="252" y="155" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -411,15 +432,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqG-u2-umb">
-                                <rect key="frame" x="51" y="506" width="31" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-I4-7nQ">
+                                <rect key="frame" x="21" y="501" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Lock In Bet"/>
+                                <connections>
+                                    <action selector="LockInBet:" destination="Z2F-ec-yuG" eventType="touchUpInside" id="osK-2B-hNV"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVh-6w-hqc">
-                                <rect key="frame" x="107" y="506" width="42" height="20"/>
+                                <rect key="frame" x="106" y="507" width="42" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -437,6 +459,9 @@
                         <outlet property="DealerCardTwo" destination="xi8-n2-FCM" id="nJT-Qg-uhe"/>
                         <outlet property="DealerTotal" destination="3e9-3f-OdY" id="3wC-7t-WaM"/>
                         <outlet property="betSlider" destination="99R-nv-Kyy" id="dDE-dS-Y1q"/>
+                        <outlet property="btnHit" destination="9VH-78-XJl" id="Ta7-qp-T4q"/>
+                        <outlet property="btnLock" destination="b2m-I4-7nQ" id="05m-T7-O9C"/>
+                        <outlet property="btnStay" destination="vH8-bO-Pgj" id="hEH-Ya-QL2"/>
                         <outlet property="lblBet" destination="BVh-6w-hqc" id="Vse-Zr-4CR"/>
                         <outlet property="lblCardFive" destination="mOE-yh-ff8" id="k1M-0P-rV3"/>
                         <outlet property="lblCardFour" destination="euW-dq-OJq" id="gGJ-PD-X7A"/>
@@ -452,7 +477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct5-EP-fdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="190"/>
+            <point key="canvasLocation" x="-889" y="224"/>
         </scene>
     </scenes>
 </document>

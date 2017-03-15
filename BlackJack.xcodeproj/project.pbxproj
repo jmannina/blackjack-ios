@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70E554EA1E67BF39008A4CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70E554E81E67BF39008A4CDB /* Main.storyboard */; };
+		703A7C661E789D260008B490 /* ScoresController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703A7C651E789D260008B490 /* ScoresController.swift */; };
+		70E554EA1E67BF39008A4CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70E554E81E67BF39008A4CDB /* Main.storyboard */; settings = {ASSET_TAGS = (highscore, ); }; };
 		70E554EC1E67BF39008A4CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70E554EB1E67BF39008A4CDB /* Assets.xcassets */; };
 		70E554EF1E67BF39008A4CDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70E554ED1E67BF39008A4CDB /* LaunchScreen.storyboard */; };
 		70E554FA1E67BF39008A4CDB /* BlackJackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E554F91E67BF39008A4CDB /* BlackJackTests.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		703A7C651E789D260008B490 /* ScoresController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresController.swift; sourceTree = "<group>"; };
 		70E554DF1E67BF39008A4CDB /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70E554E91E67BF39008A4CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70E554EB1E67BF39008A4CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				8D0F7D281E75E5290094AA54 /* HelpController.swift */,
 				8D0F7D261E75E50A0094AA54 /* OptionController.swift */,
 				8D0F7D241E75D82D0094AA54 /* MainMenuController.swift */,
+				703A7C651E789D260008B490 /* ScoresController.swift */,
 				70E554EB1E67BF39008A4CDB /* Assets.xcassets */,
 				70E554ED1E67BF39008A4CDB /* LaunchScreen.storyboard */,
 				8D74B0301E7618E0009C0EFA /* Card.swift */,
@@ -199,6 +202,9 @@
 		70E554D71E67BF39008A4CDB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					highscore,
+				);
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Jake Dremann";
@@ -277,6 +283,7 @@
 				8D74B0771E7631C0009C0EFA /* StartController.swift in Sources */,
 				8D74B0311E7618E0009C0EFA /* Card.swift in Sources */,
 				8D0F7D291E75E5290094AA54 /* HelpController.swift in Sources */,
+				703A7C661E789D260008B490 /* ScoresController.swift in Sources */,
 				8D0F7D251E75D82D0094AA54 /* MainMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
