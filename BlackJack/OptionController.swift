@@ -62,5 +62,20 @@ class OptionController: UIViewController {
         else if(tempCardColor == "Green"){
             CardColor = UIColor.green
         }
+        
+        let alertController = UIAlertController(title: "Options Saved", message: "", preferredStyle: .alert)
+        
+        let changedMind = UIAlertAction(title: "Change Another Option", style: .default) { action in
+            self.viewWillAppear(true)
+        }
+        
+        
+        let MainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(changedMind)
+        alertController.addAction(MainMenuAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
