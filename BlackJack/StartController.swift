@@ -276,7 +276,7 @@ class StartController: UIViewController {
             
             
         let MainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { action in
-                self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "menuSegue", sender: totalCash)
             }
             
         alertController.addAction(PlayAgainAction)
@@ -309,7 +309,7 @@ class StartController: UIViewController {
         
         
         let MainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { action in
-            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "menuSegue", sender: totalCash)
         }
         
         alertController.addAction(PlayAgainAction)

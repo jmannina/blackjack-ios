@@ -48,8 +48,10 @@ class ScoresController: UIViewController {
         scores.text = ""
         scores.sizeToFit()
         for i in 0...(highscores.count-1) {
-            scores.text = scores.text! + "\(i + 1)"
-            scores.text = scores.text! + ".  " + String(highscores[i]) + "\n"
+            if highscores[i] != 0 {
+                scores.text = scores.text! + "\(i + 1)"
+                scores.text = scores.text! + ".  " + String(highscores[i]) + "\n"
+            }
         }
         scores.sizeToFit()
     }
